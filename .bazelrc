@@ -1,0 +1,12 @@
+build --cxxopt=-std=c++1z
+build --cxxopt=-O3
+build --cxxopt=-march=native
+build --cxxopt=-mtune=native
+
+build:profile --cxxopt=-std=c++1z
+build:profile --cxxopt="-pg" --copt="-pg" --linkopt="-pg"
+
+build:debug --cxxopt=-std=c++1z
+build:debug --cxxopt=-O0
+build:debug --cxxopt=-fsanitize=address,undefined
+build:debug --linkopt -fsanitize=address,undefined
